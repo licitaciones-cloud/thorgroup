@@ -18,7 +18,8 @@
     <title>THOR GROUP</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N">
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/font-awesome.css">
@@ -326,8 +327,10 @@
 
 
         <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" crossorigin="anonymous"
+                integrity="sha384-UG8ao2jwOWB7/oDdObZc6ItJmwUkR/PfMyt9Qs5AwX7PsnYn1CRKCTWyncPTWvaS"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"
+                integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"></script>
 
 
         <!-- Additional Scripts -->
@@ -343,6 +346,39 @@
                 } else {
                     navbar.classList.remove('sticky');
                 }
+            });
+
+            // Bootstrap dropdown hover functionality
+            $(document).ready(function(){
+                // Enable hover for dropdown
+                $('.dropdown').hover(
+                    function() {
+                        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
+                    }, 
+                    function() {
+                        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+                    }
+                );
+                
+                // Also handle click for mobile/touch devices
+                $('.dropdown-toggle').on('click', function(e) {
+                    var dropdown = $(this).next('.dropdown-menu');
+                    if (dropdown.is(':visible')) {
+                        dropdown.fadeOut(300);
+                    } else {
+                        $('.dropdown-menu').fadeOut(300);
+                        dropdown.fadeIn(300);
+                    }
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                
+                // Close dropdown when clicking outside
+                $(document).on('click', function(e) {
+                    if (!$(e.target).closest('.dropdown').length) {
+                        $('.dropdown-menu').fadeOut(300);
+                    }
+                });
             });
         </script>
 
