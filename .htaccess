@@ -1,0 +1,7 @@
+DirectoryIndex index.php index.html index.htm
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ http://thorgroup.net/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
