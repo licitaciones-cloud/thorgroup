@@ -202,6 +202,42 @@
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/owl.js"></script>
 
+    <!-- Bootstrap dropdown hover functionality -->
+    <script>
+        $(document).ready(function(){
+            // Enable hover for dropdown
+            $('.dropdown').hover(
+                function() {
+                    $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
+                }, 
+                function() {
+                    $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+                }
+            );
+            
+            // Also handle click for mobile/touch devices
+            $('.dropdown-toggle').on('click', function(e) {
+                var dropdown = $(this).next('.dropdown-menu');
+                if (dropdown.is(':visible')) {
+                    dropdown.fadeOut(300);
+                } else {
+                    $('.dropdown-menu').fadeOut(300);
+                    dropdown.fadeIn(300);
+                }
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            
+            // Close dropdown when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.dropdown').length) {
+                    $('.dropdown-menu').fadeOut(300);
+                }
+            });
+        });
+    </script>
+    <script src="assets/js/owl.js"></script>
+
 
 
 </body>
