@@ -35,12 +35,28 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    <header>
+    <header class="sticky-top">
+        <div class="bg-top-bar">
+            <div class="thor-topbar container">
+                <div class="thor-top-phone">
+                    <img class="thor-top-phone-img h-auto img-fluid" src="assets/images/thorgroup/iconos/phone.png"
+                        alt="phone-thor">
+                    <a href="https://wa.link/47jmbk" target="_blank">
+                        <span>+57 313 2495590</span></a>
+                </div>
+                <div class="thor-mail">
+                    <img class="thor-top-phone-img h-auto img-fluid" src="assets/images/thorgroup/iconos/mail.png"
+                        alt="mail-thor">
+                    <span>laura.zapata@cmsa.com.co
+                    </span>
+                </div>
+            </div>
+        </div>
         <nav class="navbar navbar-expand-lg shadow fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <h2><img class="logo-home" src="./assets/images/thorgroup/logo/LOGO THOR GROUP 250 X 40 PX.png"
-                            alt=""></h2>
+                    <h2><img class="logo-home" src="assets/images/thorgroup/logo/LOGO THOR GROUP.png" alt="logo-thor">
+                    </h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,18 +65,17 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto thor-nav align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link font-title" href="index.html">INICIO
-                                <span class="sr-only">(current)</span>
-                            </a>
+                            <a class="nav-link font-title" href="index.html">INICIO</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-title" href="our.html">NOSOTROS</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <div class="dropdown">
-                                <a class="btn btn-products nav-link dropdown-toggle active" type="button"
+                                <a class="btn btn-products nav-link dropdown-toggle" type="button"
                                     data-toggle="dropdown" aria-expanded="false">
                                     PRODUCTOS
+                                    <span class="sr-only">(current)</span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="products9.html">Accesorios Alumbrado Público</a>
@@ -69,8 +84,8 @@
                                     <a class="dropdown-item" href="products6.html">Aislantes Eléctricos</a>
                                     <a class="dropdown-item" href="products1.html">Alambre Esmaltado de Cobre y
                                         Aluminio</a>
-                                    <a class="dropdown-item active" href="products.html">Bornas, Grapas y Conectores</a>
-									<a class="dropdown-item" href="products11.html">Cables</a>
+                                    <a class="dropdown-item" href="products.html">Bornas, Grapas y Conectores</a>
+                                    <a class="dropdown-item" href="products11.html">Cables</a>
                                     <a class="dropdown-item" href="products7.html">Conectores Media Tensión de Red
                                         Subterránea</a>
                                     <a class="dropdown-item" href="products2.html">Flejes de Aluminio y Cobre</a>
@@ -80,28 +95,15 @@
                                 </div>
                             </div>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link font-title" href="contact.html">CONTACTO</a>
                         </li>
+
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="bg-top-bar">
-            <div class="thor-topbar container">
-                <div class="thor-top-phone">
-                    <img class="thor-top-phone-img h-auto img-fluid" src="./assets/images/thorgroup/iconos/phone.png"
-                        alt="">
-                    <a href="https://wa.link/47jmbk" target="_blank">
-                        <span>+57 313 2495590</span></a>
-                </div>
-                <div class="thor-mail">
-                    <img class="thor-top-phone-img h-auto img-fluid" src="./assets/images/thorgroup/iconos/mail.png"
-                        alt="">
-                    <span>laura.zapata@cmsa.com.co</span>
-                </div>
-            </div>
-        </div>
     </header>
 
     <!-- Page Content -->
@@ -259,6 +261,16 @@
 
     <!-- Bootstrap dropdown hover functionality -->
     <script>
+        window.addEventListener('scroll', function () {
+            var navbar = document.querySelector('nav');
+            if (window.pageYOffset > 0) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        });
+
+        // Bootstrap dropdown hover functionality
         $(document).ready(function(){
             // Enable hover for dropdown
             $('.dropdown').hover(
